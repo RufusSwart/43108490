@@ -30,16 +30,16 @@ Partial Class MainForm
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GuestInfoGrb = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.NumKidsCB = New System.Windows.Forms.ComboBox()
         Me.numKidsLbl = New System.Windows.Forms.Label()
         Me.NumadultsCb = New System.Windows.Forms.ComboBox()
         Me.numAdultsLbl = New System.Windows.Forms.Label()
         Me.zipTb = New System.Windows.Forms.MaskedTextBox()
         Me.phoneTb = New System.Windows.Forms.MaskedTextBox()
         Me.phoneLbl = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ConfirmEmailTb = New System.Windows.Forms.TextBox()
         Me.confirmEmailLbl = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.emailTb = New System.Windows.Forms.TextBox()
         Me.emailLbl = New System.Windows.Forms.Label()
         Me.CountryCb = New System.Windows.Forms.ComboBox()
         Me.CountryLbl = New System.Windows.Forms.Label()
@@ -62,28 +62,30 @@ Partial Class MainForm
         Me.RoomListbox = New System.Windows.Forms.ListBox()
         Me.StatusGrb = New System.Windows.Forms.GroupBox()
         Me.SpecialRequestGrb = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.twinSingleBeds = New System.Windows.Forms.RadioButton()
+        Me.doublebedRbtn = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.nonSmokingRbtn = New System.Windows.Forms.RadioButton()
+        Me.SmokingRBtn = New System.Windows.Forms.RadioButton()
         Me.confirmBookBtn = New System.Windows.Forms.Button()
         Me.ClearFromBtn = New System.Windows.Forms.Button()
         Me.PaymentGrb = New System.Windows.Forms.GroupBox()
+        Me.CashRbtn = New System.Windows.Forms.RadioButton()
+        Me.ChequeRbtn = New System.Windows.Forms.RadioButton()
+        Me.EFTRBtn = New System.Windows.Forms.RadioButton()
+        Me.CreditCardRBtn = New System.Windows.Forms.RadioButton()
         Me.CurrentUserLbl = New System.Windows.Forms.Label()
         Me.LoginDateTimeLbl = New System.Windows.Forms.Label()
-        Me.CreditCardRBtn = New System.Windows.Forms.RadioButton()
-        Me.EFTRBtn = New System.Windows.Forms.RadioButton()
-        Me.ChequeRbtn = New System.Windows.Forms.RadioButton()
-        Me.CashRbtn = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.SmokingRBtn = New System.Windows.Forms.RadioButton()
-        Me.nonSmokingRbtn = New System.Windows.Forms.RadioButton()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.doublebedRbtn = New System.Windows.Forms.RadioButton()
-        Me.twinSingleBeds = New System.Windows.Forms.RadioButton()
+        Me.errTb = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GuestInfoGrb.SuspendLayout()
         Me.RoomGrb.SuspendLayout()
+        Me.StatusGrb.SuspendLayout()
         Me.SpecialRequestGrb.SuspendLayout()
-        Me.PaymentGrb.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.PaymentGrb.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -136,16 +138,16 @@ Partial Class MainForm
         '
         'GuestInfoGrb
         '
-        Me.GuestInfoGrb.Controls.Add(Me.ComboBox1)
+        Me.GuestInfoGrb.Controls.Add(Me.NumKidsCB)
         Me.GuestInfoGrb.Controls.Add(Me.numKidsLbl)
         Me.GuestInfoGrb.Controls.Add(Me.NumadultsCb)
         Me.GuestInfoGrb.Controls.Add(Me.numAdultsLbl)
         Me.GuestInfoGrb.Controls.Add(Me.zipTb)
         Me.GuestInfoGrb.Controls.Add(Me.phoneTb)
         Me.GuestInfoGrb.Controls.Add(Me.phoneLbl)
-        Me.GuestInfoGrb.Controls.Add(Me.TextBox2)
+        Me.GuestInfoGrb.Controls.Add(Me.ConfirmEmailTb)
         Me.GuestInfoGrb.Controls.Add(Me.confirmEmailLbl)
-        Me.GuestInfoGrb.Controls.Add(Me.TextBox1)
+        Me.GuestInfoGrb.Controls.Add(Me.emailTb)
         Me.GuestInfoGrb.Controls.Add(Me.emailLbl)
         Me.GuestInfoGrb.Controls.Add(Me.CountryCb)
         Me.GuestInfoGrb.Controls.Add(Me.CountryLbl)
@@ -167,14 +169,14 @@ Partial Class MainForm
         Me.GuestInfoGrb.TabStop = False
         Me.GuestInfoGrb.Text = "Guest Information"
         '
-        'ComboBox1
+        'NumKidsCB
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"0", "1", "2", "3", "4"})
-        Me.ComboBox1.Location = New System.Drawing.Point(256, 349)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(57, 22)
-        Me.ComboBox1.TabIndex = 24
+        Me.NumKidsCB.FormattingEnabled = True
+        Me.NumKidsCB.Items.AddRange(New Object() {"0", "1", "2", "3", "4"})
+        Me.NumKidsCB.Location = New System.Drawing.Point(256, 349)
+        Me.NumKidsCB.Name = "NumKidsCB"
+        Me.NumKidsCB.Size = New System.Drawing.Size(57, 22)
+        Me.NumKidsCB.TabIndex = 24
         '
         'numKidsLbl
         '
@@ -228,12 +230,12 @@ Partial Class MainForm
         Me.phoneLbl.TabIndex = 18
         Me.phoneLbl.Text = "Phone:"
         '
-        'TextBox2
+        'ConfirmEmailTb
         '
-        Me.TextBox2.Location = New System.Drawing.Point(112, 293)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(201, 22)
-        Me.TextBox2.TabIndex = 17
+        Me.ConfirmEmailTb.Location = New System.Drawing.Point(112, 293)
+        Me.ConfirmEmailTb.Name = "ConfirmEmailTb"
+        Me.ConfirmEmailTb.Size = New System.Drawing.Size(201, 22)
+        Me.ConfirmEmailTb.TabIndex = 17
         '
         'confirmEmailLbl
         '
@@ -244,12 +246,12 @@ Partial Class MainForm
         Me.confirmEmailLbl.TabIndex = 16
         Me.confirmEmailLbl.Text = "Confirm E-mail:"
         '
-        'TextBox1
+        'emailTb
         '
-        Me.TextBox1.Location = New System.Drawing.Point(112, 267)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(201, 22)
-        Me.TextBox1.TabIndex = 15
+        Me.emailTb.Location = New System.Drawing.Point(112, 267)
+        Me.emailTb.Name = "emailTb"
+        Me.emailTb.Size = New System.Drawing.Size(201, 22)
+        Me.emailTb.TabIndex = 15
         '
         'emailLbl
         '
@@ -426,6 +428,7 @@ Partial Class MainForm
         '
         'StatusGrb
         '
+        Me.StatusGrb.Controls.Add(Me.errTb)
         Me.StatusGrb.Location = New System.Drawing.Point(610, 253)
         Me.StatusGrb.Name = "StatusGrb"
         Me.StatusGrb.Size = New System.Drawing.Size(310, 188)
@@ -443,6 +446,70 @@ Partial Class MainForm
         Me.SpecialRequestGrb.TabIndex = 4
         Me.SpecialRequestGrb.TabStop = False
         Me.SpecialRequestGrb.Text = "Special  Requests"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.twinSingleBeds)
+        Me.GroupBox2.Controls.Add(Me.doublebedRbtn)
+        Me.GroupBox2.Location = New System.Drawing.Point(7, 107)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(295, 76)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        '
+        'twinSingleBeds
+        '
+        Me.twinSingleBeds.AutoSize = True
+        Me.twinSingleBeds.Location = New System.Drawing.Point(163, 26)
+        Me.twinSingleBeds.Name = "twinSingleBeds"
+        Me.twinSingleBeds.Size = New System.Drawing.Size(117, 18)
+        Me.twinSingleBeds.TabIndex = 1
+        Me.twinSingleBeds.TabStop = True
+        Me.twinSingleBeds.Text = "Twin Single Beds"
+        Me.twinSingleBeds.UseVisualStyleBackColor = True
+        '
+        'doublebedRbtn
+        '
+        Me.doublebedRbtn.AutoSize = True
+        Me.doublebedRbtn.Location = New System.Drawing.Point(7, 26)
+        Me.doublebedRbtn.Name = "doublebedRbtn"
+        Me.doublebedRbtn.Size = New System.Drawing.Size(89, 18)
+        Me.doublebedRbtn.TabIndex = 0
+        Me.doublebedRbtn.TabStop = True
+        Me.doublebedRbtn.Text = "Double Bed"
+        Me.doublebedRbtn.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.nonSmokingRbtn)
+        Me.GroupBox1.Controls.Add(Me.SmokingRBtn)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(295, 78)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        '
+        'nonSmokingRbtn
+        '
+        Me.nonSmokingRbtn.AutoSize = True
+        Me.nonSmokingRbtn.Location = New System.Drawing.Point(165, 35)
+        Me.nonSmokingRbtn.Name = "nonSmokingRbtn"
+        Me.nonSmokingRbtn.Size = New System.Drawing.Size(97, 18)
+        Me.nonSmokingRbtn.TabIndex = 1
+        Me.nonSmokingRbtn.TabStop = True
+        Me.nonSmokingRbtn.Text = "Non-Smoking"
+        Me.nonSmokingRbtn.UseVisualStyleBackColor = True
+        '
+        'SmokingRBtn
+        '
+        Me.SmokingRBtn.AutoSize = True
+        Me.SmokingRBtn.Location = New System.Drawing.Point(7, 35)
+        Me.SmokingRBtn.Name = "SmokingRBtn"
+        Me.SmokingRBtn.Size = New System.Drawing.Size(71, 18)
+        Me.SmokingRBtn.TabIndex = 0
+        Me.SmokingRBtn.TabStop = True
+        Me.SmokingRBtn.Text = "Smoking"
+        Me.SmokingRBtn.UseVisualStyleBackColor = True
         '
         'confirmBookBtn
         '
@@ -475,6 +542,50 @@ Partial Class MainForm
         Me.PaymentGrb.TabStop = False
         Me.PaymentGrb.Text = "Payment Info"
         '
+        'CashRbtn
+        '
+        Me.CashRbtn.AutoSize = True
+        Me.CashRbtn.Location = New System.Drawing.Point(108, 68)
+        Me.CashRbtn.Name = "CashRbtn"
+        Me.CashRbtn.Size = New System.Drawing.Size(51, 18)
+        Me.CashRbtn.TabIndex = 3
+        Me.CashRbtn.TabStop = True
+        Me.CashRbtn.Text = "Cash"
+        Me.CashRbtn.UseVisualStyleBackColor = True
+        '
+        'ChequeRbtn
+        '
+        Me.ChequeRbtn.AutoSize = True
+        Me.ChequeRbtn.Location = New System.Drawing.Point(7, 68)
+        Me.ChequeRbtn.Name = "ChequeRbtn"
+        Me.ChequeRbtn.Size = New System.Drawing.Size(66, 18)
+        Me.ChequeRbtn.TabIndex = 2
+        Me.ChequeRbtn.TabStop = True
+        Me.ChequeRbtn.Text = "Cheque"
+        Me.ChequeRbtn.UseVisualStyleBackColor = True
+        '
+        'EFTRBtn
+        '
+        Me.EFTRBtn.AutoSize = True
+        Me.EFTRBtn.Location = New System.Drawing.Point(108, 22)
+        Me.EFTRBtn.Name = "EFTRBtn"
+        Me.EFTRBtn.Size = New System.Drawing.Size(125, 18)
+        Me.EFTRBtn.TabIndex = 1
+        Me.EFTRBtn.TabStop = True
+        Me.EFTRBtn.Text = "Electronic Transfer"
+        Me.EFTRBtn.UseVisualStyleBackColor = True
+        '
+        'CreditCardRBtn
+        '
+        Me.CreditCardRBtn.AutoSize = True
+        Me.CreditCardRBtn.Location = New System.Drawing.Point(10, 22)
+        Me.CreditCardRBtn.Name = "CreditCardRBtn"
+        Me.CreditCardRBtn.Size = New System.Drawing.Size(84, 18)
+        Me.CreditCardRBtn.TabIndex = 0
+        Me.CreditCardRBtn.TabStop = True
+        Me.CreditCardRBtn.Text = "Credit Card"
+        Me.CreditCardRBtn.UseVisualStyleBackColor = True
+        '
         'CurrentUserLbl
         '
         Me.CurrentUserLbl.AutoSize = True
@@ -491,119 +602,21 @@ Partial Class MainForm
         Me.LoginDateTimeLbl.AutoSize = True
         Me.LoginDateTimeLbl.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.LoginDateTimeLbl.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoginDateTimeLbl.Location = New System.Drawing.Point(684, 0)
+        Me.LoginDateTimeLbl.Location = New System.Drawing.Point(657, 0)
         Me.LoginDateTimeLbl.Name = "LoginDateTimeLbl"
         Me.LoginDateTimeLbl.Size = New System.Drawing.Size(119, 19)
         Me.LoginDateTimeLbl.TabIndex = 9
         Me.LoginDateTimeLbl.Text = "Login Date+Time"
         '
-        'CreditCardRBtn
+        'errTb
         '
-        Me.CreditCardRBtn.AutoSize = True
-        Me.CreditCardRBtn.Location = New System.Drawing.Point(10, 22)
-        Me.CreditCardRBtn.Name = "CreditCardRBtn"
-        Me.CreditCardRBtn.Size = New System.Drawing.Size(84, 18)
-        Me.CreditCardRBtn.TabIndex = 0
-        Me.CreditCardRBtn.TabStop = True
-        Me.CreditCardRBtn.Text = "Credit Card"
-        Me.CreditCardRBtn.UseVisualStyleBackColor = True
-        '
-        'EFTRBtn
-        '
-        Me.EFTRBtn.AutoSize = True
-        Me.EFTRBtn.Location = New System.Drawing.Point(108, 22)
-        Me.EFTRBtn.Name = "EFTRBtn"
-        Me.EFTRBtn.Size = New System.Drawing.Size(125, 18)
-        Me.EFTRBtn.TabIndex = 1
-        Me.EFTRBtn.TabStop = True
-        Me.EFTRBtn.Text = "Electronic Transfer"
-        Me.EFTRBtn.UseVisualStyleBackColor = True
-        '
-        'ChequeRbtn
-        '
-        Me.ChequeRbtn.AutoSize = True
-        Me.ChequeRbtn.Location = New System.Drawing.Point(7, 68)
-        Me.ChequeRbtn.Name = "ChequeRbtn"
-        Me.ChequeRbtn.Size = New System.Drawing.Size(66, 18)
-        Me.ChequeRbtn.TabIndex = 2
-        Me.ChequeRbtn.TabStop = True
-        Me.ChequeRbtn.Text = "Cheque"
-        Me.ChequeRbtn.UseVisualStyleBackColor = True
-        '
-        'CashRbtn
-        '
-        Me.CashRbtn.AutoSize = True
-        Me.CashRbtn.Location = New System.Drawing.Point(108, 68)
-        Me.CashRbtn.Name = "CashRbtn"
-        Me.CashRbtn.Size = New System.Drawing.Size(51, 18)
-        Me.CashRbtn.TabIndex = 3
-        Me.CashRbtn.TabStop = True
-        Me.CashRbtn.Text = "Cash"
-        Me.CashRbtn.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.nonSmokingRbtn)
-        Me.GroupBox1.Controls.Add(Me.SmokingRBtn)
-        Me.GroupBox1.Location = New System.Drawing.Point(7, 12)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(295, 78)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        '
-        'SmokingRBtn
-        '
-        Me.SmokingRBtn.AutoSize = True
-        Me.SmokingRBtn.Location = New System.Drawing.Point(7, 35)
-        Me.SmokingRBtn.Name = "SmokingRBtn"
-        Me.SmokingRBtn.Size = New System.Drawing.Size(71, 18)
-        Me.SmokingRBtn.TabIndex = 0
-        Me.SmokingRBtn.TabStop = True
-        Me.SmokingRBtn.Text = "Smoking"
-        Me.SmokingRBtn.UseVisualStyleBackColor = True
-        '
-        'nonSmokingRbtn
-        '
-        Me.nonSmokingRbtn.AutoSize = True
-        Me.nonSmokingRbtn.Location = New System.Drawing.Point(165, 35)
-        Me.nonSmokingRbtn.Name = "nonSmokingRbtn"
-        Me.nonSmokingRbtn.Size = New System.Drawing.Size(97, 18)
-        Me.nonSmokingRbtn.TabIndex = 1
-        Me.nonSmokingRbtn.TabStop = True
-        Me.nonSmokingRbtn.Text = "Non-Smoking"
-        Me.nonSmokingRbtn.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.twinSingleBeds)
-        Me.GroupBox2.Controls.Add(Me.doublebedRbtn)
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 107)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(295, 76)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        '
-        'doublebedRbtn
-        '
-        Me.doublebedRbtn.AutoSize = True
-        Me.doublebedRbtn.Location = New System.Drawing.Point(7, 26)
-        Me.doublebedRbtn.Name = "doublebedRbtn"
-        Me.doublebedRbtn.Size = New System.Drawing.Size(89, 18)
-        Me.doublebedRbtn.TabIndex = 0
-        Me.doublebedRbtn.TabStop = True
-        Me.doublebedRbtn.Text = "Double Bed"
-        Me.doublebedRbtn.UseVisualStyleBackColor = True
-        '
-        'twinSingleBeds
-        '
-        Me.twinSingleBeds.AutoSize = True
-        Me.twinSingleBeds.Location = New System.Drawing.Point(163, 26)
-        Me.twinSingleBeds.Name = "twinSingleBeds"
-        Me.twinSingleBeds.Size = New System.Drawing.Size(117, 18)
-        Me.twinSingleBeds.TabIndex = 1
-        Me.twinSingleBeds.TabStop = True
-        Me.twinSingleBeds.Text = "Twin Single Beds"
-        Me.twinSingleBeds.UseVisualStyleBackColor = True
+        Me.errTb.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.errTb.Location = New System.Drawing.Point(7, 21)
+        Me.errTb.Multiline = True
+        Me.errTb.Name = "errTb"
+        Me.errTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.errTb.Size = New System.Drawing.Size(295, 161)
+        Me.errTb.TabIndex = 1
         '
         'MainForm
         '
@@ -630,13 +643,15 @@ Partial Class MainForm
         Me.GuestInfoGrb.PerformLayout()
         Me.RoomGrb.ResumeLayout(False)
         Me.RoomGrb.PerformLayout()
+        Me.StatusGrb.ResumeLayout(False)
+        Me.StatusGrb.PerformLayout()
         Me.SpecialRequestGrb.ResumeLayout(False)
-        Me.PaymentGrb.ResumeLayout(False)
-        Me.PaymentGrb.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.PaymentGrb.ResumeLayout(False)
+        Me.PaymentGrb.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -662,9 +677,9 @@ Partial Class MainForm
     Friend WithEvents PostalCodeLbl As System.Windows.Forms.Label
     Friend WithEvents CountryCb As System.Windows.Forms.ComboBox
     Friend WithEvents CountryLbl As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents ConfirmEmailTb As System.Windows.Forms.TextBox
     Friend WithEvents confirmEmailLbl As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents emailTb As System.Windows.Forms.TextBox
     Friend WithEvents emailLbl As System.Windows.Forms.Label
     Friend WithEvents zipTb As System.Windows.Forms.MaskedTextBox
     Friend WithEvents phoneTb As System.Windows.Forms.MaskedTextBox
@@ -672,7 +687,7 @@ Partial Class MainForm
     Friend WithEvents NumadultsCb As System.Windows.Forms.ComboBox
     Friend WithEvents numAdultsLbl As System.Windows.Forms.Label
     Friend WithEvents numKidsLbl As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents NumKidsCB As System.Windows.Forms.ComboBox
     Friend WithEvents RoomGrb As System.Windows.Forms.GroupBox
     Friend WithEvents StatusGrb As System.Windows.Forms.GroupBox
     Friend WithEvents SpecialRequestGrb As System.Windows.Forms.GroupBox
@@ -696,4 +711,5 @@ Partial Class MainForm
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents nonSmokingRbtn As System.Windows.Forms.RadioButton
     Friend WithEvents SmokingRBtn As System.Windows.Forms.RadioButton
+    Friend WithEvents errTb As System.Windows.Forms.TextBox
 End Class
