@@ -65,7 +65,7 @@ Partial Class Form3
         Me.Controls.Add(Me.DataGridView1)
         Me.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Form3"
-        Me.Text = "Form3"
+        Me.Text = "The Bear & The Troll Tavern -- Reports"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

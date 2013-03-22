@@ -174,7 +174,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "LoginForm"
-        Me.Text = "Trol & Bear Travin Booking System"
+        Me.Text = "The Bear & The Troll Tavern -- Login"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

@@ -11,7 +11,6 @@
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         disableGroupboxes()
-        bookingID = 0
     End Sub
 
     Private Sub SingleBookingToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SingleBookingToolStripMenuItem.Click
@@ -39,14 +38,32 @@
             Next
             Me.StatusGrb.Controls.Add(errTb)
         Else
-            errTb.Text = "All OK!"
-            errTb.ForeColor = Color.Green
-            saveData()
+            Dim roomAvailable As Boolean
+            roomAvailable = checkRoom(RoomListbox.SelectedItem, ArrivalDate.Value.Date, DepartureDate.Value.Date)
+            If (roomAvailable = False) Then
+                errTb.Text = "The Room is not available!"
+                errTb.ForeColor = Color.Red
+            Else
+                errTb.Text = "All OK!"
+                errTb.ForeColor = Color.Green
+                saveData(type)
+            End If
         End If
     End Sub
 
     Private Sub ViewBookingsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewBookingsToolStripMenuItem.Click
+        Dim f3 As New Form3
         Me.Hide()
-        Form3.Show()
+        f3.Show()
+    End Sub
+
+    Private Sub ClearFromBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClearFromBtn.Click
+        clearFieldData()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HelpToolStripMenuItem.Click
+        Me.Hide()
+        currForm = "MainForm"
+        Form4.Show()
     End Sub
 End Class

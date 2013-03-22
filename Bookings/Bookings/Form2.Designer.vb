@@ -61,6 +61,7 @@ Partial Class MainForm
         Me.ArrivalDate = New System.Windows.Forms.DateTimePicker()
         Me.RoomListbox = New System.Windows.Forms.ListBox()
         Me.StatusGrb = New System.Windows.Forms.GroupBox()
+        Me.errTb = New System.Windows.Forms.TextBox()
         Me.SpecialRequestGrb = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.twinSingleBeds = New System.Windows.Forms.RadioButton()
@@ -77,7 +78,6 @@ Partial Class MainForm
         Me.CreditCardRBtn = New System.Windows.Forms.RadioButton()
         Me.CurrentUserLbl = New System.Windows.Forms.Label()
         Me.LoginDateTimeLbl = New System.Windows.Forms.Label()
-        Me.errTb = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GuestInfoGrb.SuspendLayout()
         Me.RoomGrb.SuspendLayout()
@@ -107,13 +107,13 @@ Partial Class MainForm
         'SingleBookingToolStripMenuItem
         '
         Me.SingleBookingToolStripMenuItem.Name = "SingleBookingToolStripMenuItem"
-        Me.SingleBookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SingleBookingToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.SingleBookingToolStripMenuItem.Text = "Single Room"
         '
         'DoubleBookingToolStripMenuItem
         '
         Me.DoubleBookingToolStripMenuItem.Name = "DoubleBookingToolStripMenuItem"
-        Me.DoubleBookingToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DoubleBookingToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.DoubleBookingToolStripMenuItem.Text = "Double Room"
         '
         'ViewBookingsToolStripMenuItem
@@ -211,7 +211,7 @@ Partial Class MainForm
         Me.zipTb.Mask = "0000"
         Me.zipTb.Name = "zipTb"
         Me.zipTb.Size = New System.Drawing.Size(30, 22)
-        Me.zipTb.TabIndex = 20
+        Me.zipTb.TabIndex = 10
         '
         'phoneTb
         '
@@ -436,6 +436,16 @@ Partial Class MainForm
         Me.StatusGrb.TabStop = False
         Me.StatusGrb.Text = "Status"
         '
+        'errTb
+        '
+        Me.errTb.BackColor = System.Drawing.SystemColors.InactiveBorder
+        Me.errTb.Location = New System.Drawing.Point(7, 21)
+        Me.errTb.Multiline = True
+        Me.errTb.Name = "errTb"
+        Me.errTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.errTb.Size = New System.Drawing.Size(295, 161)
+        Me.errTb.TabIndex = 1
+        '
         'SpecialRequestGrb
         '
         Me.SpecialRequestGrb.Controls.Add(Me.GroupBox2)
@@ -608,16 +618,6 @@ Partial Class MainForm
         Me.LoginDateTimeLbl.TabIndex = 9
         Me.LoginDateTimeLbl.Text = "Login Date+Time"
         '
-        'errTb
-        '
-        Me.errTb.BackColor = System.Drawing.SystemColors.InactiveBorder
-        Me.errTb.Location = New System.Drawing.Point(7, 21)
-        Me.errTb.Multiline = True
-        Me.errTb.Name = "errTb"
-        Me.errTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.errTb.Size = New System.Drawing.Size(295, 161)
-        Me.errTb.TabIndex = 1
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -636,7 +636,7 @@ Partial Class MainForm
         Me.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "MainForm"
-        Me.Text = "Form2"
+        Me.Text = "The Bear & The Troll Tavern -- Main"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GuestInfoGrb.ResumeLayout(False)

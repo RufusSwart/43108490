@@ -1,9 +1,13 @@
-﻿Module Module1
+﻿Imports System.Text.RegularExpressions
+
+Module Module1
     Public errlist As New ArrayList
     Public CurrUser As String
     Public loginTime As String
     Public bookingID As Integer
-    Public arrData(,) As String
+    Public arrData(1000, 20) As String
+    Public flag As Boolean
+    Public currForm As String
 
     Public Sub Login(ByRef User, ByRef Time)
         LoginForm.Hide()
@@ -15,6 +19,7 @@
     End Sub
 
     Public Sub populateSingleRooms()
+        MainForm.RoomListbox.Items.Clear()
         MainForm.RoomListbox.Items.Add("Room 101")
         MainForm.RoomListbox.Items.Add("Room 103")
         MainForm.RoomListbox.Items.Add("Room 105")
@@ -23,6 +28,7 @@
     End Sub
 
     Public Sub populateDoubleRooms()
+        MainForm.RoomListbox.Items.Clear()
         MainForm.RoomListbox.Items.Add("Room 102")
         MainForm.RoomListbox.Items.Add("Room 104")
         MainForm.RoomListbox.Items.Add("Room 106")
@@ -52,6 +58,8 @@
 
     Public Function checkMainformFields()
         Dim formErrors As Boolean
+        Dim emailValid As Boolean
+        emailValid = EmailAddressCheck(MainForm.emailTb.Text)
         MainForm.phoneTb.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
         errlist.Clear()
         If (MainForm.FirstNameTb.Text = "") Then
@@ -94,6 +102,9 @@
 
         If (MainForm.emailTb.Text = "") Then
             errlist.Add("E-mail must be filled in.")
+            formErrors = True
+        ElseIf (emailValid = False) Then
+            errlist.Add("Please enter a valid email address.")
             formErrors = True
         End If
 
@@ -162,7 +173,62 @@
         Return formErrors
     End Function
 
-    Public Sub saveData()
+    Public Function checkRoom(ByVal room As String, ByVal startDate As String, ByVal endDate As String)
+        If (bookingID <> 0) Then
+            For z As Integer = 0 To bookingID
+                If (arrData(z, 13) = room) Then
+                    If (Date.Compare(arrData(z, 14), endDate) <= 0 And Date.Compare(arrData(z, 15), startDate) >= 0) Then
+                        flag = False
+                    Else
+                        flag = True
+                    End If
+                End If
+            Next
+        Else
+            flag = True
+        End If
+        Return flag
+    End Function
+
+    Function EmailAddressCheck(ByVal emailAddress As String) As Boolean
+
+        Dim pattern As String = "^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" + "\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" + ".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+        Dim emailAddressMatch As Match = Regex.Match(emailAddress, pattern)
+        If emailAddressMatch.Success Then
+            EmailAddressCheck = True
+        Else
+            EmailAddressCheck = False
+        End If
+        Return EmailAddressCheck
+    End Function
+
+    Public Sub clearFieldData()
+        MainForm.FirstNameTb.Text = ""
+        MainForm.LastNameTb.Text = ""
+        MainForm.AddressTb.Text = ""
+        MainForm.CityTb.Text = ""
+        MainForm.StateTb.Text = ""
+        MainForm.zipTb.Text = ""
+        MainForm.CountryCb.SelectedIndex = -1
+        MainForm.emailTb.Text = ""
+        MainForm.ConfirmEmailTb.Text = ""
+        MainForm.phoneTb.Text = ""
+        MainForm.NumadultsCb.SelectedIndex = -1
+        MainForm.NumKidsCB.SelectedIndex = -1
+        MainForm.RoomListbox.SelectedIndex = -1
+        MainForm.ArrivalDate.Value = Now
+        MainForm.DepartureDate.Value = Now
+        MainForm.CreditCardRBtn.Checked = False
+        MainForm.EFTRBtn.Checked = False
+        MainForm.ChequeRbtn.Checked = False
+        MainForm.CashRbtn.Checked = False
+        MainForm.SmokingRBtn.Checked = False
+        MainForm.nonSmokingRbtn.Checked = False
+        MainForm.doublebedRbtn.Checked = False
+        MainForm.twinSingleBeds.Checked = False
+    End Sub
+
+    Public Sub saveData(ByVal RoomType)
         Try
             arrData(bookingID, 0) = CurrUser
             arrData(bookingID, 1) = loginTime
@@ -204,10 +270,11 @@
             If (MainForm.twinSingleBeds.Checked) Then
                 arrData(bookingID, 18) = MainForm.twinSingleBeds.Text
             End If
-
-            disableGroupboxes()
-            MsgBox(arrData(bookingID, 13) + " Successfully booked! Thank you :)")
+            arrData(bookingID, 19) = RoomType
             bookingID = bookingID + 1
+            disableGroupboxes()
+            clearFieldData()
+            MsgBox(arrData(bookingID - 1, 13) + " Successfully booked! Thank you :)")
         Catch ex As Exception
 
         End Try
