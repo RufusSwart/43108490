@@ -48,43 +48,47 @@
 
                 dt.Columns.Add("Additional Requests", Type.GetType("System.String"))
 
-                For i As Integer = 0 To bookingID - 1
+                Dim tmpData As New bookingDB
 
+                tmpData.load()
+
+                'For i As Integer = 0 To tmpData.Bookings.Count
+                For Each item As Booking In tmpData.Bookings
                     dt.Rows.Add()
 
-                    dt.Rows(dt.Rows.Count - 1)("First Name") = arrData(i, 2)
+                    dt.Rows(dt.Rows.Count - 1)("First Name") = item.Guest.Firstname
 
-                    dt.Rows(dt.Rows.Count - 1)("Last Name") = arrData(i, 3)
+                    dt.Rows(dt.Rows.Count - 1)("Last Name") = item.Guest.Lastname
 
-                    dt.Rows(dt.Rows.Count - 1)("Address") = arrData(i, 4)
+                    dt.Rows(dt.Rows.Count - 1)("Address") = item.Guest.Address
 
-                    dt.Rows(dt.Rows.Count - 1)("City") = arrData(i, 5)
+                    dt.Rows(dt.Rows.Count - 1)("City") = item.Guest.City
 
-                    dt.Rows(dt.Rows.Count - 1)("State/Provance") = arrData(i, 6)
+                    dt.Rows(dt.Rows.Count - 1)("State/Provance") = item.Guest.State
 
-                    dt.Rows(dt.Rows.Count - 1)("Postal/Zip code") = arrData(i, 7)
+                    dt.Rows(dt.Rows.Count - 1)("Postal/Zip code") = item.Guest.Zip
 
-                    dt.Rows(dt.Rows.Count - 1)("Country") = arrData(i, 8)
+                    dt.Rows(dt.Rows.Count - 1)("Country") = item.Guest.Country
 
-                    dt.Rows(dt.Rows.Count - 1)("E-Mail") = arrData(i, 9)
+                    dt.Rows(dt.Rows.Count - 1)("E-Mail") = item.Guest.Email
 
-                    dt.Rows(dt.Rows.Count - 1)("Phone") = arrData(i, 10)
+                    dt.Rows(dt.Rows.Count - 1)("Phone") = item.Guest.Phone
 
-                    dt.Rows(dt.Rows.Count - 1)("Number of Adults") = arrData(i, 11)
+                    dt.Rows(dt.Rows.Count - 1)("Number of Adults") = item.Guest.NumberofAdults
 
-                    dt.Rows(dt.Rows.Count - 1)("Number of Kids") = arrData(i, 12)
+                    dt.Rows(dt.Rows.Count - 1)("Number of Kids") = item.Guest.NumberofAdults
 
-                    dt.Rows(dt.Rows.Count - 1)("Room Number") = arrData(i, 13)
+                    dt.Rows(dt.Rows.Count - 1)("Room Number") = item.Room.Number
 
-                    dt.Rows(dt.Rows.Count - 1)("Room Type") = arrData(i, 19)
+                    dt.Rows(dt.Rows.Count - 1)("Room Type") = item.Room.RoomType
 
-                    dt.Rows(dt.Rows.Count - 1)("Arrival Date") = arrData(i, 14)
+                    dt.Rows(dt.Rows.Count - 1)("Arrival Date") = item.Arrival
 
-                    dt.Rows(dt.Rows.Count - 1)("Departure Date") = arrData(i, 15)
+                    dt.Rows(dt.Rows.Count - 1)("Departure Date") = item.Departure
 
-                    dt.Rows(dt.Rows.Count - 1)("Payment Method") = arrData(i, 16)
+                    dt.Rows(dt.Rows.Count - 1)("Payment Method") = item.PaymentMethod.ToString
 
-                    dt.Rows(dt.Rows.Count - 1)("Additional Requests") = arrData(i, 17) + " -- " + arrData(i, 18)
+                    dt.Rows(dt.Rows.Count - 1)("Additional Requests") = item.Room.BedType + " -- " + item.Room.Smoking
                 Next
 
                 DataGridView1.DataSource = dt

@@ -390,7 +390,7 @@ Partial Class MainForm
         Me.DepartureDate.Location = New System.Drawing.Point(6, 232)
         Me.DepartureDate.Name = "DepartureDate"
         Me.DepartureDate.Size = New System.Drawing.Size(200, 22)
-        Me.DepartureDate.TabIndex = 4
+        Me.DepartureDate.TabIndex = 16
         '
         'departurelbl
         '
@@ -415,7 +415,7 @@ Partial Class MainForm
         Me.ArrivalDate.Location = New System.Drawing.Point(7, 178)
         Me.ArrivalDate.Name = "ArrivalDate"
         Me.ArrivalDate.Size = New System.Drawing.Size(200, 22)
-        Me.ArrivalDate.TabIndex = 1
+        Me.ArrivalDate.TabIndex = 15
         '
         'RoomListbox
         '
@@ -444,7 +444,7 @@ Partial Class MainForm
         Me.errTb.Name = "errTb"
         Me.errTb.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.errTb.Size = New System.Drawing.Size(295, 161)
-        Me.errTb.TabIndex = 1
+        Me.errTb.TabIndex = 50
         '
         'SpecialRequestGrb
         '
@@ -473,7 +473,7 @@ Partial Class MainForm
         Me.twinSingleBeds.Location = New System.Drawing.Point(163, 26)
         Me.twinSingleBeds.Name = "twinSingleBeds"
         Me.twinSingleBeds.Size = New System.Drawing.Size(117, 18)
-        Me.twinSingleBeds.TabIndex = 1
+        Me.twinSingleBeds.TabIndex = 24
         Me.twinSingleBeds.TabStop = True
         Me.twinSingleBeds.Text = "Twin Single Beds"
         Me.twinSingleBeds.UseVisualStyleBackColor = True
@@ -484,7 +484,7 @@ Partial Class MainForm
         Me.doublebedRbtn.Location = New System.Drawing.Point(7, 26)
         Me.doublebedRbtn.Name = "doublebedRbtn"
         Me.doublebedRbtn.Size = New System.Drawing.Size(89, 18)
-        Me.doublebedRbtn.TabIndex = 0
+        Me.doublebedRbtn.TabIndex = 23
         Me.doublebedRbtn.TabStop = True
         Me.doublebedRbtn.Text = "Double Bed"
         Me.doublebedRbtn.UseVisualStyleBackColor = True
@@ -505,7 +505,7 @@ Partial Class MainForm
         Me.nonSmokingRbtn.Location = New System.Drawing.Point(165, 35)
         Me.nonSmokingRbtn.Name = "nonSmokingRbtn"
         Me.nonSmokingRbtn.Size = New System.Drawing.Size(97, 18)
-        Me.nonSmokingRbtn.TabIndex = 1
+        Me.nonSmokingRbtn.TabIndex = 22
         Me.nonSmokingRbtn.TabStop = True
         Me.nonSmokingRbtn.Text = "Non-Smoking"
         Me.nonSmokingRbtn.UseVisualStyleBackColor = True
@@ -516,7 +516,7 @@ Partial Class MainForm
         Me.SmokingRBtn.Location = New System.Drawing.Point(7, 35)
         Me.SmokingRBtn.Name = "SmokingRBtn"
         Me.SmokingRBtn.Size = New System.Drawing.Size(71, 18)
-        Me.SmokingRBtn.TabIndex = 0
+        Me.SmokingRBtn.TabIndex = 21
         Me.SmokingRBtn.TabStop = True
         Me.SmokingRBtn.Text = "Smoking"
         Me.SmokingRBtn.UseVisualStyleBackColor = True
@@ -558,7 +558,7 @@ Partial Class MainForm
         Me.CashRbtn.Location = New System.Drawing.Point(108, 68)
         Me.CashRbtn.Name = "CashRbtn"
         Me.CashRbtn.Size = New System.Drawing.Size(51, 18)
-        Me.CashRbtn.TabIndex = 3
+        Me.CashRbtn.TabIndex = 20
         Me.CashRbtn.TabStop = True
         Me.CashRbtn.Text = "Cash"
         Me.CashRbtn.UseVisualStyleBackColor = True
@@ -569,7 +569,7 @@ Partial Class MainForm
         Me.ChequeRbtn.Location = New System.Drawing.Point(7, 68)
         Me.ChequeRbtn.Name = "ChequeRbtn"
         Me.ChequeRbtn.Size = New System.Drawing.Size(66, 18)
-        Me.ChequeRbtn.TabIndex = 2
+        Me.ChequeRbtn.TabIndex = 19
         Me.ChequeRbtn.TabStop = True
         Me.ChequeRbtn.Text = "Cheque"
         Me.ChequeRbtn.UseVisualStyleBackColor = True
@@ -580,7 +580,7 @@ Partial Class MainForm
         Me.EFTRBtn.Location = New System.Drawing.Point(108, 22)
         Me.EFTRBtn.Name = "EFTRBtn"
         Me.EFTRBtn.Size = New System.Drawing.Size(125, 18)
-        Me.EFTRBtn.TabIndex = 1
+        Me.EFTRBtn.TabIndex = 18
         Me.EFTRBtn.TabStop = True
         Me.EFTRBtn.Text = "Electronic Transfer"
         Me.EFTRBtn.UseVisualStyleBackColor = True
@@ -591,7 +591,7 @@ Partial Class MainForm
         Me.CreditCardRBtn.Location = New System.Drawing.Point(10, 22)
         Me.CreditCardRBtn.Name = "CreditCardRBtn"
         Me.CreditCardRBtn.Size = New System.Drawing.Size(84, 18)
-        Me.CreditCardRBtn.TabIndex = 0
+        Me.CreditCardRBtn.TabIndex = 17
         Me.CreditCardRBtn.TabStop = True
         Me.CreditCardRBtn.Text = "Credit Card"
         Me.CreditCardRBtn.UseVisualStyleBackColor = True

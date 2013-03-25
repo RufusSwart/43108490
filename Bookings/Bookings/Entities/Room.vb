@@ -1,5 +1,4 @@
 ﻿Public Class Room
-    Inherits Booking
     Private _number As String
     Private _roomtype As String
     Private _bedtype As String

@@ -1,4 +1,7 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.IO
+Imports System.Xml.Serialization
+Imports System.Reflection
 
 Module Module1
     Public errlist As New ArrayList
@@ -6,7 +9,6 @@ Module Module1
     Public loginTime As String
     Public bookingID As Integer
     Public arrData(1000, 20) As String
-    Public flag As Boolean
     Public currForm As String
 
     Public Sub Login(ByRef User, ByRef Time)
@@ -173,21 +175,17 @@ Module Module1
         Return formErrors
     End Function
 
-    Public Function checkRoom(ByVal room As String, ByVal startDate As String, ByVal endDate As String)
-        If (bookingID <> 0) Then
-            For z As Integer = 0 To bookingID
-                If (arrData(z, 13) = room) Then
-                    If (Date.Compare(arrData(z, 14), endDate) <= 0 And Date.Compare(arrData(z, 15), startDate) >= 0) Then
-                        flag = False
-                    Else
-                        flag = True
-                    End If
+    Public Function checkRoom(ByVal room As String, ByVal startDate As Date, ByVal endDate As Date) As Boolean
+        Dim tmpData As New bookingDB
+        tmpData.load()
+        For Each item As Booking In tmpData.Bookings
+            If (item.Room.Number = room) Then
+                If (Date.Compare(item.Arrival, endDate) <= 0 And Date.Compare(item.Departure, startDate) >= 0) Then
+                    Return False
                 End If
-            Next
-        Else
-            flag = True
-        End If
-        Return flag
+            End If
+        Next
+        Return True
     End Function
 
     Function EmailAddressCheck(ByVal emailAddress As String) As Boolean
@@ -279,4 +277,95 @@ Module Module1
 
         End Try
     End Sub
+
+    'Public Sub readformDisk()
+    '    If (CurrentBooking Is Nothing) Then
+    '        CurrentBooking = New Booking()
+    '    End If
+    '    Dim x As New XmlSerializer(currentBooking.GetType)
+    '    'Deserialize text file to a new object.
+    '    Dim objStreamReader As New StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "Bookings.xml")
+    '    Dim p2 As New Booking()
+    '    p2 = x.Deserialize(objStreamReader)
+    '    objStreamReader.Close()
+
+    '    'Display property values of the new product object.
+    '    'MsgBox(p2.Number)
+    'End Sub
+
+    Public Sub savetoDisk(ByVal currentBooking As Booking)
+        'Serialize object to a text file.
+        Dim objStreamWriter As New StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "Bookings.xml")
+        Dim x As New XmlSerializer(currentBooking.GetType)
+        x.Serialize(objStreamWriter, currentBooking)
+        objStreamWriter.Close()
+    End Sub 'Serialize methods
+
+    'Private Sub writeToDisk()
+    '    Dim StreamToWrite As StreamWriter
+    '    Dim path As String
+    '    path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\Bokings.txt"
+    '    StreamToWrite = My.Computer.FileSystem.OpenTextFileWriter(path, True)
+    '    StreamToWrite.Write(CurrentBooking.ID)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Number)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Arrival)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Departure)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Firstname)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Lastname)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Address)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.City)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.State)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Zip)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Country)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Email)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Phone)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.NumberofAdults)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.NumberofChildren)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.Smoking)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.BedType)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.PaymentMethod)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.CurrentUser)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.Write(CurrentBooking.LastLoginTime)
+    '    StreamToWrite.Write(";")
+    '    StreamToWrite.WriteLine(CurrentBooking.BookedTime)
+    '    StreamToWrite.Close()
+    'End Sub
+
+    'Public Function readID()
+    '    Dim StreamReader As StreamReader
+    '    Dim id = ""
+    '    Dim Path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\Bokings.txt"
+    '    If System.IO.File.Exists(Path) Then
+    '        StreamReader = My.Computer.FileSystem.OpenTextFileReader(Path)
+    '        Do Until StreamReader.EndOfStream
+    '            id = StreamReader.ReadLine()
+    '        Loop
+    '        StreamReader.Close()
+    '        id = id.Substring(0, 1)
+    '    Else
+    '        id = "-1"
+    '    End If
+
+    '    Return id
+    'End Function
+
 End Module

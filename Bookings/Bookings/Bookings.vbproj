@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Booking.vb" />
+    <Compile Include="Entities\bookingDB.vb" />
     <Compile Include="Entities\Guest.vb" />
     <Compile Include="Entities\Room.vb" />
     <Compile Include="Form1.vb">

@@ -7,7 +7,6 @@ Public Class LoginForm
 
 
     Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        bookingID = 0
         UserNameTb.Text = ""
         PasswordTb.Text = ""
         TimeLbl.Text = DateString + " - - " + TimeString
